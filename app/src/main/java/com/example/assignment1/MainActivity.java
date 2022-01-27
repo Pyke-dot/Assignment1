@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import org.mariuszgromada.math.mxparser.*;
-import java.math.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static TextView display;
+    public TextView display;
+    public static ArrayList<String> userInput = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +19,10 @@ public class MainActivity extends AppCompatActivity {
         display = findViewById(R.id.input);
 
     }
-    private void push(String strToAdd){
-        ArrayList<String> oldStr = new ArrayList<String>();
-        oldStr.add(strToAdd);
-        for (String element : oldStr) {
-            display.setText();
-        }
-
+    public void push(String strToAdd){
+        userInput.add(strToAdd);
+        String oldStr = display.getText().toString();
+        display.setText(String.format("%s %s",oldStr,strToAdd));
     }
 
     public void zero_btn(View view){
@@ -62,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void reset_btn(View view){
         display.setText("");
+        userInput.clear();
     }
     public void add_btn(View view){
         push("+");
@@ -78,12 +74,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void equal_btn(View view){
         String userExpression = display.getText().toString();
-
-        String result = String.valueOf(Calculator.calculate());
-        if(result.equals("-9999")){
-            push("=NOT AN OPERATOR");
-        }else {
-            push("=" + result);
+        if(userExpression.isEmpty()){
+            reset_btn(null);
+        }else if(display.getText().toString().contains("=")){
+            reset_btn(null);
+        }
+        else{
+            String result = String.valueOf(Calculator.calculate());
+            if (result.equals("-999")) {
+                push("= NOT AN OPERATOR");
+            } else {
+                push("= " + result);
+            }
+            userInput.clear();
         }
     }
     public void remainder_btn(View view){

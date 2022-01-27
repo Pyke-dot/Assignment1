@@ -15,7 +15,7 @@ public class Calculator{
         if(cal.size() % 2 != 1){
             res = -999;
         }else {
-            for(int i = 0; i < cal.size() ; i++) {
+            for(int i = 0; i <= cal.size() ; i++) {
             if(counter == 0) {
                     if(cal.get(0).matches("[0-9]") && !cal.get(1).matches("[0-9]") && cal.get(2).matches("[0-9]") ){
                         System.out.println("isDigit");

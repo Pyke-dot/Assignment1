@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiply_btn.setOnClickListener(this);
         divide_btn = findViewById(R.id.divide);        //divide
         divide_btn.setOnClickListener(this);
-        advance_btn = findViewById(R.id.advance);        //advance
-        advance_btn.setOnClickListener(this);
+
         equal_btn = findViewById(R.id.equal);        //equal
         equal_btn.setOnClickListener(this);
         pow_btn = findViewById(R.id.power);        //pow
@@ -74,6 +73,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         display.setText(String.format("%s %s",oldStr,strToAdd));
     }
 
+    public void advance_btn(View view){
+        TextView advance = findViewById(R.id.advance);
+        if(getText(R.string.advanceText).toString().equals(advance.getText().toString())) {
+            advance.setText(R.string.standardText);
+            findViewById(R.id.scientific).setVisibility(View.VISIBLE);
+        }else{
+            advance.setText(R.string.advanceText);
+            findViewById(R.id.scientific).setVisibility(View.GONE);
+        }
+    }
     @Override
     public void onClick(View view) {
         String title = ((Button)view).getText().toString();
@@ -95,16 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 userInput.clear();
-                break;
-            case "advance" :
-                TextView advance = findViewById(R.id.advance);
-                if(getText(R.string.advanceText).toString().equals(advance.getText().toString())) {
-                    advance.setText(R.string.standardText);
-                    findViewById(R.id.scientific).setVisibility(View.VISIBLE);
-                }else{
-                    advance.setText(R.string.advanceText);
-                    findViewById(R.id.scientific).setVisibility(View.GONE);
-                }
                 break;
             default:
                 if(display.getText().toString().contains("=")){

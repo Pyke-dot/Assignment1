@@ -12,7 +12,7 @@ public class Calculator{
         cal.addAll(MainActivity.userInput);
         System.out.println(cal);
 
-        if(cal.size() % 2 != 1){
+        if(cal.size() % 2 != 1 || cal.size() == 1){
             res = -999;
         }else {
             for(int i = 0; i <= cal.size() ; i++) {
@@ -36,7 +36,7 @@ public class Calculator{
                                 res = (parseInt(cal.get(0)) / parseInt(cal.get(2)));
                                 System.out.println("res:" + res);
                                 break;
-                            case "pow":
+                            case "Pow":
                                 res = (int) Math.pow(parseInt(cal.get(0)), parseInt(cal.get(2)));
                                 System.out.println("res:" + res);
                                 break;
@@ -45,11 +45,11 @@ public class Calculator{
                                 System.out.println("res:" + res);
                                 break;
                             case "Max":
-                                res = (int) Math.max(parseInt(cal.get(0)), parseInt(cal.get(2)));
+                                res = Math.max(parseInt(cal.get(0)), parseInt(cal.get(2)));
                                 System.out.println("res:" + res);
                                 break;
                             case "Min":
-                                res = (int) Math.min(parseInt(cal.get(0)), parseInt(cal.get(2)));
+                                res = Math.min(parseInt(cal.get(0)), parseInt(cal.get(2)));
                                 System.out.println("res:" + res);
                                 break;
                         }
@@ -80,7 +80,7 @@ public class Calculator{
                             res = (res / parseInt(cal.get(1)));
                             System.out.println("res:" + res);
                             break;
-                        case "pow":
+                        case "Pow":
                             res = (int) Math.pow(res, parseInt(cal.get(1)));
                             System.out.println("res:" + res);
                             break;
@@ -89,11 +89,11 @@ public class Calculator{
                             System.out.println("res:" + res);
                             break;
                         case "Max":
-                            res = (int) Math.max(res, parseInt(cal.get(1)));
+                            res = Math.max(res, parseInt(cal.get(1)));
                             System.out.println("res:" + res);
                             break;
                         case "Min":
-                            res = (int) Math.min(res, parseInt(cal.get(1)));
+                            res = Math.min(res, parseInt(cal.get(1)));
                             System.out.println("res:" + res);
                             break;
                     }

@@ -24,8 +24,8 @@
     <string name="standardText">STANDARD</string>
 
     <string name="remainder">%</string>
-    <string name="max">MAX</string>
-    <string name="min">MIN</string>
-    <string name="power">POW</string>
+    <string name="max">Max</string>
+    <string name="min">Min</string>
+    <string name="power">Pow</string>
 
 </resources>
